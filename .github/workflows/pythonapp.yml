@@ -27,3 +27,10 @@ jobs:
     - name: Run spider
       run: |
         python usda_fruit.py
+    - name: Zip image files
+      run: |
+        zip -r fruit-images.zip fruit-images/
+    - name: FFsend
+      run: |
+        snap install ffsend
+        ffsend upload fruit-images.zip
