@@ -48,7 +48,7 @@ class FruitInfo:
     def __parse_ori_img_url(self) -> str:
         img_id = self.thumb_pic_url.split('/')[2]
         print('img id = ', img_id)
-        return 'https://usdawatercolors.nal.usda.gov/download/{}/screen'.format(img_id)
+        return 'https://usdawatercolors.nal.usda.gov/pom/download.xhtml?id={}'.format(img_id)
 
     def __str__(self):
         return 'FruitInfo(artist={},year={},scientific_name={},common_name={},thumb_pic_url={})'.format(self.artist,
