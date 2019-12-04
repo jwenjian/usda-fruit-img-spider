@@ -1,4 +1,5 @@
 import requests
+import os.path
 from bs4 import BeautifulSoup
 
 IMG_FOLDER = 'fruit_images/'
@@ -38,6 +39,9 @@ class FruitInfo:
     def download_and_save(self):
         filename = '{}-{}-{}-{}.png'.format(self.id, self.common_name, self.year, self.artist).replace(' ', '_')
         print('filename = ', filename)
+        if os.path.exists(IMG_FOLDER + filename):
+            print(IMG_FOLDER + filename + ': skip, file already exist')
+            return
         ori_img_url = self.__parse_ori_img_url()
         print('original img url = ', ori_img_url)
         resp = requests.get(ori_img_url)
